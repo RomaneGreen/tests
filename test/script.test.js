@@ -7,6 +7,7 @@ dbMock = [
     'dogpics.com'
 ]
 
+describe('googleSearch',() => {
 
 it('is a silly test test', () => {
     expect('hello').toBe('hello')
@@ -33,4 +34,4 @@ it('doesnt return more then three matches', () => {
        
 })
 
-
+})
