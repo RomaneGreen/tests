@@ -5,13 +5,16 @@ const googleDatabase = [
     'flower.com',
     'animals.com',
     'catpics.com',
-    'myfavcats.com'
+    'myfavcats.com',
+    'myfavcats2.com'
 ]
 
 const googleSearch = (searchInput) => {
 
     const matches = googleDatabase.filter(website => {
-        return website.includes('searchInput')
+        return website.includes(searchInput)
     })
     return matches.length > 3 ? matches.slice(0,3) : matches 
 }
+
+console.log(googleSearch('cats'))
