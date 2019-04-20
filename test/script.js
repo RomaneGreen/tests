@@ -9,9 +9,9 @@ const googleDatabase = [
     'myfavcats2.com'
 ]
 
-const googleSearch = (searchInput) => {
+const googleSearch = (db,searchInput) => {
 
-    const matches = googleDatabase.filter(website => {
+    const matches = db.filter(website => {
         return website.includes(searchInput)
     })
     return matches.length > 3 ? matches.slice(0,3) : matches 
