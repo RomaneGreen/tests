@@ -8,7 +8,7 @@ const fetch = require('node-fetch')
 
          return {
        count: data.count,
-       results: data.resuls
+       results: data.results
    }
    })
  }
