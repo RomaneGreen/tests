@@ -1,5 +1,8 @@
 const Clarifai = require('clarifai');
 
+const dotenv = require('dotenv').config()
+
+
 const api_key = process.env.CLAF_API_KEY
 
 //You must add your own API key here from Clarifai.
