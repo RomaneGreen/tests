@@ -1,5 +1,5 @@
 import React from 'react';
-import { ValidatorForm } from 'react-form-validator-core';
+import SimpleReactValidator from 'simple-react-validator';
 
 class Register extends React.Component {
   constructor(props) {
@@ -9,9 +9,12 @@ class Register extends React.Component {
       password: '',
       name: ''
     }
+    this.validator = new SimpleReactValidator();
   }
 
   onNameChange = (event) => {
+
+    
     this.setState({name: event.target.value})
   }
 
@@ -24,6 +27,10 @@ class Register extends React.Component {
   }
 
   onSubmitSignIn = () => {
+
+    if (this.validator.allValid()) {
+      alert('You submitted the form and stuff!');
+    
     fetch('http://localhost:3000/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
@@ -40,11 +47,18 @@ class Register extends React.Component {
           this.props.onRouteChange('home');
         }
       })
+
+    }else {
+        this.validator.showMessages();
+        // rerender to show messages for the first time
+        // you can use the autoForceUpdate option to do this automatically`
+        this.forceUpdate();
+      }
+
   }
 
   render() {
     return (
-      <ValidatorForm>
       <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80">
           <div className="measure">
@@ -60,7 +74,8 @@ class Register extends React.Component {
                   placeholder="please enter valid name"
                   required
                   onChange={this.onNameChange}
-                />
+                  />
+                  {this.validator.message('name', this.state.name, 'required|alpha')}
               </div>
               <div className="mt3">
                 <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
@@ -71,8 +86,11 @@ class Register extends React.Component {
                   id="email-address"
                   placeholder="please enter valid email"
                   validators={['required', 'isEmail']}
+                  required
                   onChange={this.onEmailChange}
-                />
+                  />
+                  {this.validator.message('email', this.state.email, 'required|email')}
+
               </div>
               <div className="mv3">
                 <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
@@ -98,7 +116,7 @@ class Register extends React.Component {
           </div>
         </main>
       </article>
-      </ValidatorForm>
+      
     );
   }
 }
