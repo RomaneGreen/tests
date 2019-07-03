@@ -12,10 +12,10 @@ import './App.css';
 const particlesOptions = {
   particles: {
     number: {
-      value: 30,
+      value: 70,
       density: {
         enable: true,
-        value_area: 800
+        value_area: 700
       }
     }
   }
@@ -24,7 +24,7 @@ const particlesOptions = {
 const initialState = {
   input: '',
   imageUrl: '',
-  box: {},
+  boxes: {},
   route: 'signin',
   isSignedIn: false,
   user: {
