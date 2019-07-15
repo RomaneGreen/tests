@@ -34,14 +34,26 @@ class Profile extends React.Component {
         return 
     }
   }
+
+  onProfileUpdate = (data) => {
+    fetch(`http://localhost:3000/profile/${this.props.user.id}`, {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ formInput: data })
+    }).then(resp => {
+      this.props.toggleModal();
+      this.props.loadUser({...this.props.user, ...data})
+    }).catch(console.log)
+    }
+
   render() {
-    const { user, toggleModal } = this.props 
+    const { user} = this.props 
+
+    const {name, age, pet } = this.state
+
     return (
       <div className="profile-modal">
-         <button onClick={toggleModal}>Click</button>
-
-
-
+         <button onClick={this.props.toggleModal}>Click</button>
 
          <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center bg-white">
       <main className="pa4 black-80 w-80">
@@ -88,13 +100,15 @@ class Profile extends React.Component {
             
             <div className='mt4' style={{ display:'flex', justifyContent: 'space-evenly'}}>
                   
-        <button className= "b pa2 grow pointer hover-white  w-40 bg-light-blue b--black-20">Save</button>
-        <button onClick={toggleModal} className= "b pa2 grow pointer hover-white  w-40 bg-light-red b--black-20">Cancel</button>
+        <button
+        onClick={() => this.onProfileUpdate({name, age, pet })}
+         className= "b pa2 grow pointer hover-white  w-40 bg-light-blue b--black-20">Save</button>
+        <button onClick={this.props.toggleModal} className= "b pa2 grow pointer hover-white  w-40 bg-light-red b--black-20">Cancel</button>
 
             </div>
        
       </main>
-      <div onClick={toggleModal} className="modal-close">&times;</div>
+      <div onClick={this.props.toggleModal} className="modal-close">&times;</div>
     </article>
       </div>
   )
