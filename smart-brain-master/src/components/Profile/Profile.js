@@ -61,7 +61,8 @@ class Profile extends React.Component {
       <main className="pa4 black-80 w-80">
       <img src="http://tachyons.io/img/logo.jpg" 
       className="br-100 h3 w3 dib" alt="avatar" />
-      <h1>{this.state.name}</h1>
+      <h1>Name :{this.state.name}</h1>
+      <h1>Age :{this.state.age}</h1>
       <h4>{`Image submitted: ${user.entries}`} </h4>
       <p>{`Member since:${new Date(user.joined).toLocaleDateString()}`}</p>
         <hr />
