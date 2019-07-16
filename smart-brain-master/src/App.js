@@ -52,7 +52,7 @@ class App extends Component {
       fetch('http://localhost:3000/signin', {
         method: 'post',
         headers: {
-          'Content-type': 'application/json',
+          'Content-Type': 'application/json',
           'Authorization': token
         }
       })
