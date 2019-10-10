@@ -17,7 +17,7 @@ function App() {
       <AppBar  />
       <QuestionList />
       <Places />
-      {/* <Card card="qweefd" /> */}
+      {/* <Card name="qweefd" location="Monday" rating="why"/> */}
       <Grid container justify="center">
       <FooterBar />
       </Grid>

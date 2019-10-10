@@ -7,45 +7,75 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import '../card.css'
 
 const useStyles = makeStyles({
-  card: {
-    maxWidth: 345,
-  },
-});
+    card: {
+      minWidth: 7,
+      width: 4,
+    },
+    bullet: {
+      display: 'inline-block',
+      margin: '0 2px',
+      transform: 'scale(0.8)',
+    },
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+      marginBottom: 12,
+    },
+  });
 
-export default function ImgMediaCard() {
-  const classes = useStyles();
+const cardz = ({name,vicinity,rating,price_level,totalratings}) => {   
 
-  return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="Contemplative Reptile"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+
+    
+    return (
+       
+        <div>
             
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+            {/* <p>Woahhhhhh</p>
+            <p>{name}</p>
+            <p>{location}</p>
+            <p>{rating}</p> */}
+
+
+            <Card className= "bullet">
+      <CardContent>
+        <Typography className="bulletin" color="black" gutterBottom>
+          {name}
+        </Typography>
+        <Typography className="bulletin" variant="h5" component="h2">
+          {rating}
+        </Typography>
+        <Typography className="bulletin" color="black">
+         Location: {vicinity}
+        </Typography>
+        <Typography className="bulletin" variant="body2" component="p">
+          Price: {price_level}/5
+          <br />
+         Total Ratings: {totalratings}
+        </Typography>
+      </CardContent>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
+        <Button className="bullet explore" size="small">Explore</Button>
       </CardActions>
     </Card>
-  );
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    )
 }
+
+export default cardz

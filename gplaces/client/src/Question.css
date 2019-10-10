@@ -220,3 +220,8 @@ body {
       position: relative;
       left: -2.5rem;
   }
+
+  .explore {
+     position: relative;
+     left: 11rem;
+  }

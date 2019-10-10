@@ -8,8 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
- 
+import Cardz from './card'
+import '../card.css'
 
 export default class Googleplaces extends Component {
     constructor() {
@@ -42,14 +42,14 @@ export default class Googleplaces extends Component {
 
    
     const items = this.state.places.map((spot, key) =>
-
-
-     <p key={spot.id}>{spot.name}    Rating:{spot.rating}   Price:{spot.price_level}/5     Location:{spot.vicinity} Total Ratings-{spot.user_ratings_total}<br/></p>
+    <Cardz name={spot.name} vicinity={spot.vicinity} rating={spot.rating} price_level={spot.price_level} totalratings={spot.user_ratings_total} /> 
+     //<p key={spot.id}>{spot.name}    Rating:{spot.rating}   Price:{spot.price_level}/5     Location:{spot.vicinity} Total Ratings-{spot.user_ratings_total}<br/></p>
     )
    
       
       return (<div>
             {items}
+            {/* <Cardz name="qweefd" location="Monday" rating="why" /> */}
         </div>);
 
         }

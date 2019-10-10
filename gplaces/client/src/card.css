@@ -1,0 +1,12 @@
+.bullet {
+    display: 'inline-block';
+    margin: '0 2px';
+    transform: 'scale(0.8)';
+    border: 1px solid  #6EB1FF;
+    width: 50%;
+    align-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
