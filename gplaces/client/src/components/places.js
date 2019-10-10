@@ -1,5 +1,16 @@
 import React, { Component } from 'react'
 
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
+ 
+
 export default class Googleplaces extends Component {
     constructor() {
         super();
@@ -28,9 +39,15 @@ export default class Googleplaces extends Component {
 
 
   render() {
+
+   
     const items = this.state.places.map((spot, key) =>
-    <p key={spot.id}>{spot.name}    Rating:{spot.rating}   Price:{spot.price_level}/5     Location:{spot.vicinity} Total Ratings-{spot.user_ratings_total}<br/></p>
+
+
+     <p key={spot.id}>{spot.name}    Rating:{spot.rating}   Price:{spot.price_level}/5     Location:{spot.vicinity} Total Ratings-{spot.user_ratings_total}<br/></p>
     )
+   
+      
       return (<div>
             {items}
         </div>);
