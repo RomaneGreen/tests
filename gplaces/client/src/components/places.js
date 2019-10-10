@@ -22,7 +22,7 @@ export default class Googleplaces extends Component {
 
 
     
-    componentDidMount() {
+    componentDidUpdate() {
     fetch("/dday")
         .then(res => res.json())
         .then(
@@ -35,6 +35,17 @@ export default class Googleplaces extends Component {
             })
     
     }
+
+    showData = () => {
+        fetch("/dday")
+        .then(res => res.json())
+        .then(
+            (result) => {
+            this.setState({ places: result.results })
+             console.log(this.state.places)
+            })
+        }
+
     // this.state.cart.map((item, key) =>
     // <li key={item.id}>{item.name}</li>
 
@@ -50,6 +61,10 @@ export default class Googleplaces extends Component {
       
       return (<div>
             {items}
+
+            <div class="form-footer">
+      <button  onClick={this.showData}  class="btn">Submit</button>
+    </div>
             {/* <Cardz name="qweefd" location="Monday" rating="why" /> */}
         </div>);
 

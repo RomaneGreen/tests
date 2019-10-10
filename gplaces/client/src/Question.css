@@ -225,3 +225,7 @@ body {
      position: relative;
      left: 11rem;
   }
+
+  .form-footer {
+      margin-bottom: 20px;
+  }

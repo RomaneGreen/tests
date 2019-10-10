@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 import '../Question.css'
 export default class QuestionList extends Component {
+                constructor(props){
+                    super(props)
+                    this.state = {
+                        data: 'hide'
+                    }
 
-    
+                }
+
+                toggleDiv = () => {
+                    console.log("hiii")
+                    this.setState({data:'show'})
+                }
+
     render() {
         return (
             <div>
@@ -67,15 +78,10 @@ export default class QuestionList extends Component {
 
 
 
-    <div class="form-footer">
-      <button  onClick={ this.handleClick }  class="btn">Submit</button>
-    </div>
+    {/* <div class="form-footer">
+      <button  onClick={this.toggleDiv}  class="btn">Submit</button>
+    </div> */}
   </form>
 </div>
-
-        
-
-
-
 
         )}}
