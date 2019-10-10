@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import '../Question.css'
 export default class QuestionList extends Component {
+
+    
     render() {
         return (
             <div>
@@ -66,7 +68,7 @@ export default class QuestionList extends Component {
 
 
     <div class="form-footer">
-      <button class="btn">Submit</button>
+      <button  onClick={ this.handleClick }  class="btn">Submit</button>
     </div>
   </form>
 </div>

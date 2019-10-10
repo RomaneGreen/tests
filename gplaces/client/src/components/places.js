@@ -15,7 +15,8 @@ export default class Googleplaces extends Component {
     constructor() {
         super();
         this.state = {
-            places : []
+            places : [],
+            toggleState: false
         }
     }
 
